@@ -14,7 +14,7 @@ import { BlogArticle } from "../../types/types";
 
 interface ArticleProps extends BlogArticle {}
 
-export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt, url}) => {
+export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt, id}) => {
   return (
     <Grid item md={4}>
       <article>
@@ -26,7 +26,6 @@ export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt,
               height: 217,
             }}
           />
-         
             <CardContent className={classes.article__contentWrap}>
               <Box
                 sx={{
@@ -81,7 +80,7 @@ export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt,
                   )}
                 </Typography>
               </Box>
-              <Link to="/article" style={{textDecoration:'none'}}>
+              <Link to={`/articles/${encodeURIComponent(id)}`} style={{textDecoration:'none'}}>
               <Typography variant="h3" className={classes.article__title}>
                 {title}
               </Typography>
@@ -89,7 +88,7 @@ export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt,
                 {summary.length > 100 ? `${summary.slice(0, 140)}...`: summary}
               </Typography>
               </Link>
-              <Link to="/article" className={classes.article__link}>
+              <Link to={`/articles/${encodeURIComponent(id)}`} className={classes.article__link}>
                 Read More
               </Link>
               <svg

@@ -3,6 +3,9 @@ import { Typography, Box, InputBase } from "@mui/material";
 import classes from "./search.module.scss";
 
 const Search = () => {
+
+ 
+
   return (
     <div>
       <Typography className={classes.searchTitle}>
