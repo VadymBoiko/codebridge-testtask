@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState, FC, SetStateAction, Dispatch} from "react";
 import { Typography, Box, InputBase } from "@mui/material";
 import classes from "./search.module.scss";
 
-const Search = () => {
+interface SearchProps{
+  setSearch: Dispatch<SetStateAction<string>>;
+}
 
- 
+const Search:FC<SearchProps> = ({setSearch}) => {
 
   return (
     <div>
@@ -29,6 +31,7 @@ const Search = () => {
         <InputBase
           className={classes.input__field}
           type="search"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </Box>
 

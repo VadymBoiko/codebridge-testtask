@@ -12,7 +12,7 @@ export const articleApi = createApi({
     baseQuery: axiosBaseQuery({baseUrl: 'https://api.spaceflightnewsapi.net/v3'}),
     endpoints: (builder) => ({
         getArticles: builder.query<Array<BlogArticle>, void>({
-            query:() => ({
+            query: () => ({
                 url: '/articles?_limit=100',
             })
         }),

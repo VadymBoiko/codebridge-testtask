@@ -8,7 +8,6 @@ interface ArticleListProps {
 }
 
 export const ArticleList:FC<ArticleListProps> = ({list}) => {
-  console.log(list)
   return (
     <Grid container spacing={4}>
      {list.map((article) =>(
