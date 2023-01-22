@@ -1,0 +1,17 @@
+@import "/src/styles/base.scss";
+@import "/src/styles/mixins.scss";
+@import "/src/styles/variables.scss";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #363636;
+}
+
+@import "/src/components/article/article.module.scss";
+@import "/src/components/home-page/home-page.module.scss";

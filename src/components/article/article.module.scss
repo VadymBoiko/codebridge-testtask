@@ -1,0 +1,40 @@
+@import '/src/styles/variables.scss';
+@import '/src/styles/mixins.scss';
+
+
+.article{
+    width: 400px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    &__contentWrap{
+        padding: 0 25px 20px 25px;
+    }
+    &__media{
+        width: 100%;
+    }
+    &__calendarSvg{
+        vertical-align: middle
+    }
+    &__date{
+        @include montserrat-text( $color_base, $fw_normal, $fs_small, $lh_rel );
+        margin: 25px 0 25px 8px; 
+    }
+    &__title{
+        @include montserrat-text( $color_base, $fw_bold, $fs_title, $lh_title );
+        font-weight: $fw_bold;
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 20px;
+    }
+    &__description{
+        @include montserrat-text( $color_base, $fw_normal, $fs_base, $lh_rel );
+        margin-bottom: 20px
+    }
+    &__link{
+        @include montserrat-text( $color_base, $fw_bold, $fs_base, $lh_rel );
+        text-decoration: none;
+        margin-right: 6px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,40 @@
+@import '/src/styles/variables.scss';
+@import '/src/styles/mixins.scss';
+@import '../article/article.module.scss';
+
+.mainContainer{
+    max-width: 1440px;
+    padding: 0 0 0 0;
+}
+
+@import './banner/banner.module.scss';
+
+
+.detailsContainer{
+    position: relative;
+    max-width: 1290px;
+    margin: 150px auto 104px auto;
+    height: 100%;
+    padding: 35px 75px 50px 75px;
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    text-align: justify;
+    z-index: 99;
+}
+
+.title{
+    @include montserrat-text($color_base, $fw_bold, $fs_title, $lh_title);
+    text-align: center;
+    margin-bottom: 50px ;
+}
+.text{
+    @include montserrat-text($color_black, $fw_normal, 18px, $lh_rel);
+}
+
+.linkBack{
+    @extend .article__link;
+    position: absolute;
+    bottom: -75px;
+}

@@ -1,0 +1,15 @@
+
+@import '/src/styles/variables.scss';
+@import '/src/styles/mixins.scss';
+
+.container{
+    max-width: 1290px;
+    padding: 63px 0;
+}
+
+.searchTitle{
+    @include montserrat-text($color_base ,$fw_semiBold, $fs_small, $lh_sm);
+}
+.searchResultText{
+    @extend .searchTitle;
+}
