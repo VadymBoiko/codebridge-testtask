@@ -1,24 +1,27 @@
-import React from "react";
+import React , { FC }from "react";
 import {
   CardMedia,
   CardContent,
   Box,
   Card,
   Typography,
-  Grid,
+  Grid
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 import classes from "./article.module.scss";
+import { BlogArticle } from "../../types/types";
 
-export const Article = () => {
+interface ArticleProps extends BlogArticle {}
+
+export const Article:FC<ArticleProps> = ({title, imageUrl, summary, publishedAt, url}) => {
   return (
     <Grid item md={4}>
       <article>
         <Card className={classes.article}>
           <CardMedia
             className={classes.article__media}
-            image="https://spacenews.com/wp-content/uploads/2023/01/mls-cyclone4m.jpg"
+            image={imageUrl}
             sx={{
               height: 217,
             }}
@@ -73,19 +76,17 @@ export const Article = () => {
                   </svg>
                 </span>
                 <Typography className={classes.article__date}>
-                  {DateTime.fromISO("2023-01-20T18:52:00.000Z").toLocaleString(
+                  {DateTime.fromISO(publishedAt).toLocaleString(
                     DateTime.DATE_FULL
                   )}
                 </Typography>
               </Box>
               <Link to="/article" style={{textDecoration:'none'}}>
               <Typography variant="h3" className={classes.article__title}>
-                The 2020 World's Most Valuable Brands
+                {title}
               </Typography>
-              <Typography className="article__description">
-                Non sed molestie tortor massa vitae in mattis. Eget vel consequat
-                hendrerit commodo libero aliquam. Urna arcu nunc tortor vitae
-                pharetra...
+              <Typography className={classes.article__description}>
+                {summary.length > 100 ? `${summary.slice(0, 140)}...`: summary}
               </Typography>
               </Link>
               <Link to="/article" className={classes.article__link}>
@@ -106,7 +107,6 @@ export const Article = () => {
                 />
               </svg>
             </CardContent>
-          
         </Card>
       </article>
     </Grid>

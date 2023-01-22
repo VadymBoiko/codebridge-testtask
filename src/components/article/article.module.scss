@@ -21,6 +21,7 @@
         margin: 25px 0 25px 8px; 
     }
     &__title{
+        height: 116px;
         @include montserrat-text( $color_base, $fw_bold, $fs_title, $lh_title );
         font-weight: $fw_bold;
         font-size: 24px;
@@ -28,6 +29,7 @@
         margin-bottom: 20px;
     }
     &__description{
+        height: 96px;
         @include montserrat-text( $color_base, $fw_normal, $fs_base, $lh_rel );
         margin-bottom: 20px
     }
