@@ -11,7 +11,7 @@ export const articleApi = createApi({
     reducerPath: 'articleApi',
     baseQuery: axiosBaseQuery({baseUrl: 'https://api.spaceflightnewsapi.net/v3'}),
     endpoints: (builder) => ({
-        getArticles: builder.query<Array<BlogArticle>, void>({
+        getArticles: builder.query<Array<BlogArticle>, string>({
             query: () => ({
                 url: '/articles?_limit=100',
             })

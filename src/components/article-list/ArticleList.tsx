@@ -10,9 +10,9 @@ interface ArticleListProps {
 export const ArticleList:FC<ArticleListProps> = ({list}) => {
   return (
     <Grid container spacing={4}>
-     {list.map((article) =>(
+     {list.length !== 0 ? list.map((article) =>(
       <Article key={article.id} {...article} />
-     )) }
+     )) : <>No articles to display</>}
     </Grid>
   )
 }

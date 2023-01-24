@@ -4,9 +4,10 @@ import classes from "./search.module.scss";
 
 interface SearchProps{
   setSearch: Dispatch<SetStateAction<string>>;
+  countSearchResult: number;
 }
 
-const Search:FC<SearchProps> = ({setSearch}) => {
+const Search:FC<SearchProps> = ({setSearch, countSearchResult}) => {
 
   return (
     <div>
@@ -30,12 +31,11 @@ const Search:FC<SearchProps> = ({setSearch}) => {
         </Box>
         <InputBase
           className={classes.input__field}
-          type="search"
+          type="text"
           onChange={(e) => setSearch(e.target.value)}
         />
       </Box>
-
-      <Typography className={classes.searchResultText}>Results: 6</Typography>
+      <Typography className={classes.searchResultText}>{`Results: ${countSearchResult}`}</Typography>
     </div>
   );
 };

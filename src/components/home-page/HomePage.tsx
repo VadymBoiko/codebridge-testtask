@@ -5,30 +5,29 @@ import Search from "./search/Search";
 import classes from "./home-page.module.scss"
 import { useGetArticlesQuery } from "../../services/articles";
 import { BlogArticle } from "../../types/types";
-import { searchArticles } from "../../utility";
+import { searchArticles } from "../../utility/search";
+import { useDebounce } from "../../hooks/debounce";
 
 export const HomePage = () => {
   const [search, setSearch] = useState<string>('');
   const [searchResult, setSearchResult] = useState<BlogArticle[]>([]);
+  const [countSearchResult, setCountSearchResult] = useState<number>(searchResult.length)
 
-  const { data, error, isLoading } = useGetArticlesQuery();
+  const debounced = useDebounce(search);
+  const { data, error, isLoading } = useGetArticlesQuery(debounced);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (data && search) {
-
       let filteredResults = searchArticles(data, search)
-
       setSearchResult(filteredResults);
-      
-      console.log(search);
-      console.log(searchResult);
+      setCountSearchResult(filteredResults.length);
     }
-  }, [data, search]);
+  }, [ debounced]);
 
   return (
     <main>
       <Container className={classes.container} >
-        <Search setSearch={setSearch} />
+        <Search setSearch={setSearch} countSearchResult={countSearchResult}/>
         <Divider textAlign='center' sx={{ mb: '45px' }} />
         {error ? (<>oh no, there was an error</>
         ) : isLoading ? (
