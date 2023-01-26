@@ -1,6 +1,6 @@
 @import '/src/styles/variables.scss';
 @import '/src/styles/mixins.scss';
-@import '../article/article.module.scss';
+@import '../../components/article/article.module.scss';
 
 .mainContainer{
     max-width: 1440px;

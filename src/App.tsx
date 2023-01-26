@@ -1,7 +1,6 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ArticleDetails } from './components/article-details/ArticleDetails';
-import { HomePage } from './components/home-page/HomePage';
+import { ArticleDetails } from './pages/article-details/ArticleDetails';
+import { HomePage } from './pages/home-page/HomePage';
 
 function App() {
   return (

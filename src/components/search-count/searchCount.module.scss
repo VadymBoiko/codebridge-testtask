@@ -1,0 +1,6 @@
+@import "../search/search.module.scss";
+
+.searchResultText{
+    @extend .searchTitle;
+    margin: 40px 0 5px 0;
+}
